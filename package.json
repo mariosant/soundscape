@@ -3,6 +3,7 @@
 	"version": "0.0.0",
 	"description": "",
 	"keywords": [],
+    "license": "MIT",
 	"main": "src/index.js",
 	"dependencies": {
 		"@material-ui/core": "4.9.12",
