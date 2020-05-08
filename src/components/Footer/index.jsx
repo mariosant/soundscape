@@ -4,9 +4,9 @@ import { Box, Typography, Container } from '@material-ui/core'
 export default () => {
 	return (
         <Container maxWidth="sm">
-            <Box textAlign="center" color="white" marginY="2rem">
+            <Box textAlign="center" color="#888" marginY="2rem">
 				<Typography variant="body1">
-					Developed by mariosant
+					an experiment by mariosant
 				</Typography>
 		</Box>
         </Container>

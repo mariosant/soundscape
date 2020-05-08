@@ -3,7 +3,7 @@ import buzz from 'musquito'
 import { cond, T } from 'ramda'
 
 import { styled } from '@material-ui/core/styles'
-import { withStyles, ButtonBase, Slider, Box, IconButton } from '@material-ui/core'
+import { withStyles, Slider, Box, IconButton } from '@material-ui/core'
 
 const StyledSlider = withStyles({
     rail: {

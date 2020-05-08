@@ -2,5 +2,6 @@ html, body {
   margin: 0;
   padding: 0;
   background: #303030;
+  background-image: linear-gradient(45deg, #111 0%, #383838 81%);
   min-height: 100vh;
 }
