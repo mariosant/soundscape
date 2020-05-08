@@ -1,111 +1,93 @@
 import React from 'react'
-import { Box } from '@material-ui/core'
+import { Box, Container } from '@material-ui/core'
 import * as I from '@material-ui/icons'
 import AudioButton from '../Audiobutton'
 
 const Audioplayer = () => (
-	<Box>
+    <Container maxWidth="sm">
+	<Box display="flex" flexWrap="wrap" justifyContent="center">
 		<AudioButton
-			backgroundColor="#4A148C"
 			icon={I.NaturePeople}
 			src="https://actions.google.com/sounds/v1/ambiences/carnival_atmosphere.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#BF360C"
 			icon={I.LocalCafe}
 			src="https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#004D40"
 			icon={I.LocalCarWash}
 			src="https://actions.google.com/sounds/v1/ambiences/highway_near_waterfront.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#212121"
 			icon={I.NightsStay}
 			src="https://actions.google.com/sounds/v1/ambiences/jungle_atmosphere_late_night.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#01579B"
 			icon={I.Brightness2}
 			src="https://actions.google.com/sounds/v1/ambiences/warm_afternoon_outdoors.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#33691E"
 			icon={I.Pets}
 			src="https://actions.google.com/sounds/v1/animals/cat_purr.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#880E4F"
 			icon={I.Keyboard}
 			src="https://actions.google.com/sounds/v1/office/computer_typing_slow.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#311B92"
 			icon={I.BeachAccess}
 			src="https://actions.google.com/sounds/v1/human_voices/summer_beach_ambience.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#F57F17"
 			icon={I.Waves}
 			src="https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#006064"
 			icon={I.Whatshot}
 			src="https://actions.google.com/sounds/v1/ambiences/fire.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#1A237E"
 			icon={I.BugReport}
 			src="https://actions.google.com/sounds/v1/ambiences/crickets_with_distant_traffic.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#311B92"
 			icon={I.Autorenew}
 			src="https://actions.google.com/sounds/v1/transportation/windshield_wipers_no_water.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#F57F17"
 			icon={I.AirportShuttle}
 			src="https://actions.google.com/sounds/v1/transportation/truck_drive.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#01579B"
 			icon={I.Commute}
 			src="https://actions.google.com/sounds/v1/transportation/suburban_streets_summer.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#b71c1c"
 			icon={I.Lens}
 			src="https://actions.google.com/sounds/v1/household/long_silence_at_top.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#880E4F"
 			icon={I.LeakAdd}
 			src="https://actions.google.com/sounds/v1/household/wood_scraps_shuffling.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#BF360C"
 			icon={I.TransferWithinAStation}
 			src="https://actions.google.com/sounds/v1/foley/footsteps_on_fallen_leaves.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#1B5E20"
 			icon={I.Domain}
 			src="https://actions.google.com/sounds/v1/foley/metal_rattling_rhythmically.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#3E2723"
 			icon={I.DragIndicator}
 			src="https://actions.google.com/sounds/v1/foley/objects_in_plastic_bottle.ogg"
 		/>
 		<AudioButton
-			backgroundColor="#263238"
 			icon={I.Category}
 			src="https://actions.google.com/sounds/v1/foley/slide_on_gravel_series.ogg"
 		/>
 	</Box>
+    </Container>
 )
 
 export default Audioplayer
