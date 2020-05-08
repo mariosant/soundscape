@@ -3,7 +3,7 @@ import buzz from 'musquito'
 import { cond, T } from 'ramda'
 
 import { styled } from '@material-ui/core/styles'
-import { withStyles, ButtonBase, Slider, Box } from '@material-ui/core'
+import { withStyles, ButtonBase, Slider, Box, IconButton } from '@material-ui/core'
 
 const StyledSlider = withStyles({
     rail: {
@@ -31,23 +31,11 @@ const reducer = cond([
     [T, state => state],
 ])
 
-const StyledButtonBase = styled(ButtonBase)(
+const StyledBox = styled(Box)(
     ({ backgroundColor = 'white', theme }) => {
         return {
-            backgroundColor,
             padding: '1rem',
-            height: '50vw',
-            width: '50vw',
-            position: 'relative',
             color: 'white',
-            [theme.breakpoints.up('sm')]: {
-                height: '25vw',
-                width: '25vw',
-            },
-            [theme.breakpoints.up('md')]: {
-                height: '20vw',
-                width: '20vw',
-            },
         }
     },
 )
@@ -57,7 +45,7 @@ const Audiobutton = props => {
     const [{ playing, loading, volume }, dispatch] = React.useReducer(reducer, {
         playing: false,
         loading: false,
-        volume: 35,
+        volume: 8,
     })
 
     const { current: buzzInstance } = React.useRef(
@@ -77,7 +65,7 @@ const Audiobutton = props => {
         playing || loading ? buzzInstance.stop() : buzzInstance.play()
 
     const handleVolumeChange = (e, v) => {
-        e.preventDefault(); e.stopPropagation(); 
+        e.preventDefault(); e.stopPropagation();
 
         dispatch({ type: 'volume', payload: v })
     }
@@ -88,39 +76,52 @@ const Audiobutton = props => {
     }, [buzzInstance, volume])
 
     return (
-        <StyledButtonBase {...props} onClick={toggle}>
-            {loading && (
-                <Box width="60%">
-                    <Box marginBottom="1rem">
+        <StyledBox {...props}>
+            {!playing && !loading && (
+                <>
+                    <IconButton marginBottom="1rem" onClick={toggle}>
                         <Icon
-                            style={{ fontSize: '4rem', opacity: 0.3, filter: 'blur' }}
+                            style={{ color: 'white', fontSize: '4rem', opacity: 0.2, filter: 'blur' }}
                         />
-                    </Box>
+                    </IconButton>
                     <Box display="flex">
-                        <StyledSlider disabled value={volume} min={0} max={50} />
+                        <StyledSlider disabled value={volume} min={0} max={10} />
                     </Box>
-                </Box>
+                </>
+            )}
+
+            {loading && (
+                <>
+                    <IconButton marginBottom="1rem" onClick={toggle} color="white">
+
+                        <Icon
+                            style={{color: 'white', fontSize: '4rem', opacity: 0.5, filter: 'blur' }}
+                        />
+                    </IconButton>
+                    <Box display="flex">
+                        <StyledSlider disabled value={volume} min={0} max={10} />
+                    </Box>
+                </>
             )}
             {playing &&
-                <Box width="60%">
-                    <Box marginBottom="1rem">
-                        <Icon style={{ fontSize: '4rem' }} onClick={toggle} />
-                    </Box>
+                <>
+                    <IconButton marginBottom="1rem" onClick={toggle} color="white">
+
+                        <Icon style={{ color: 'white', fontSize: '4rem' }}/>
+                    </IconButton>
                     <Box display="flex">
-                        <StyledSlider 
+                        <StyledSlider
                             value={volume}
                             onChange={handleVolumeChange}
-                            onClick={e => { e.stopPropagation() }} 
+                            onClick={e => { e.stopPropagation() }}
                             min={0}
-                            max={50}
+                            max={10}
                             step={1}
                         />
                     </Box>
-                </Box>
+                </>
             }
-
-
-        </StyledButtonBase>
+        </StyledBox>
     )
 }
 
