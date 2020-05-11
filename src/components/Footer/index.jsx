@@ -18,8 +18,6 @@ export default () => {
 					>
 						source
 					</Link>
-					<br />
-					audio is courtesy of Google
 				</Typography>
 			</Box>
 		</Container>
