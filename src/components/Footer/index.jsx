@@ -10,6 +10,8 @@ export default () => {
 					<Link color="inherit" target="_blank" href="https://mariosant.dev">
 						mariosant
 					</Link>
+                    {' '} - <Link color="inherit" target="_blank" href="https://github.com/mariosant/soundscape">source</Link>
+                    <br/>audio is courtesy of Google
 				</Typography>
 			</Box>
 		</Container>

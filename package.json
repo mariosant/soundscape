@@ -9,6 +9,7 @@
 		"@material-ui/core": "4.9.12",
 		"@material-ui/icons": "4.9.1",
 		"easy-peasy": "3.3.0",
+		"framer-motion": "^1.10.3",
 		"musquito": "2.1.2",
 		"ramda": "0.27.0",
 		"react": "16.12.0",
