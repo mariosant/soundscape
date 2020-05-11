@@ -17,7 +17,10 @@
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
 		/>
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 
 		<!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -29,6 +32,14 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
 		<title>Soundscape</title>
+
+		<script>
+			if ("serviceWorker" in navigator) {
+				navigator.serviceWorker.register("/sw.js").then(function () {
+					console.log("Service Worker Registered");
+				});
+			}
+		</script>
 	</head>
 
 	<body>
@@ -45,5 +56,6 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
-    --></body>
+    -->
+	</body>
 </html>
