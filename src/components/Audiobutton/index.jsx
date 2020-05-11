@@ -3,7 +3,7 @@ import buzz from "musquito";
 import { cond, T } from "ramda";
 import { motion } from "framer-motion"
 import { styled } from "@material-ui/core/styles";
-import { withStyles, Slider, Box, IconButton, LinearProgress } from "@material-ui/core";
+import { withStyles, Slider, Box, IconButton, CircularProgress } from "@material-ui/core";
 
 buzz.setup({
     autoEnable: true,
@@ -78,7 +78,7 @@ const Audiobutton = (props) => {
         gainNode.gain.value = volume;
     }, [buzzInstance, volume]);
 
-    const animationVariants = {
+    const animationIconVariants = {
         disabled: {
             opacity: 0.2,
             filter: 'blur(0)'
@@ -95,11 +95,12 @@ const Audiobutton = (props) => {
         }
     }
 
-    const animationState = playing ? 'playing' : loading ? 'loading' : 'disabled'
+    const animationIconState = playing ? 'playing' : loading ? 'loading' : 'disabled'
 
     return (
         <StyledBox {...props}>
-            <motion.div animate={animationState} initial="disabled" variants={animationVariants}>
+            <Box position="relative">
+            <motion.div animate={animationIconState} initial="disabled" variants={animationIconVariants}>
                 <IconButton onClick={toggle}>
                     <Icon
                         style={{
@@ -109,16 +110,16 @@ const Audiobutton = (props) => {
                     />
                 </IconButton>
             </motion.div>
-            <Box display="flex">
-                <StyledSlider
-                    disabled={!playing}
-                    value={volume}
-                    onChange={handleVolumeChange}
-                    min={0}
-                    max={10}
-                    step={1}
-                />
+                {loading && <CircularProgress color="white" size={25} style={{top: '35%', left: '35%', position: 'absolute'}}/>}
             </Box>
+            <StyledSlider
+                disabled={!playing}
+                value={volume}
+                onChange={handleVolumeChange}
+                min={0}
+                max={10}
+                step={1}
+            />
         </StyledBox>
     );
 };
