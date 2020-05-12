@@ -11,10 +11,6 @@ import {
 	CircularProgress,
 } from "@material-ui/core";
 
-buzz.setup({
-	autoEnable: true,
-});
-
 const StyledSlider = withStyles({
 	rail: {
 		color: "white",
@@ -58,6 +54,7 @@ const Audiobutton = (props) => {
 
 	const { current: buzzInstance } = React.useRef(
 		buzz({
+			autoEnable: true,
 			src: props.src,
 			loop: true,
 			onplaystart: () => dispatch({ type: "playstart" }),
@@ -72,10 +69,7 @@ const Audiobutton = (props) => {
 	const toggle = () =>
 		playing || loading ? buzzInstance.stop() : buzzInstance.play();
 
-	const handleVolumeChange = (e, v) => {
-		e.preventDefault();
-		e.stopPropagation();
-
+	const handleVolumeChange = (_e, v) => {
 		dispatch({ type: "volume", payload: v });
 	};
 
@@ -87,16 +81,13 @@ const Audiobutton = (props) => {
 	const animationIconVariants = {
 		disabled: {
 			opacity: 0.2,
-			filter: "blur(0)",
 		},
 		loading: {
 			opacity: 0.05,
-			// filter: 'blur(7px)'
 		},
 		playing: {
 			opacity: 1,
 			scale: 1,
-			filter: "blur(0px)",
 		},
 	};
 
